@@ -12,7 +12,7 @@ import com.flyfox.game.core.FFContants;
 
 public class Snake extends FFObject {
 
-	public static final int DEFAULT_LENGTH = 4;
+	public static final int DEFAULT_LENGTH = 8;
 	AtomicInteger score = new AtomicInteger(0); // 分数
 	Color snakeColor; // 颜色
 	KeyCode keyCode; // 方向
