@@ -5,10 +5,10 @@ import java.security.SecureRandom;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-import com.flyfox.game.core.WObject;
-import com.flyfox.game.core.WSystem;
+import com.flyfox.game.core.FFObject;
+import com.flyfox.game.core.FFContants;
 
-public class Food extends WObject {
+public class Food extends FFObject {
 
 	private SecureRandom random = new SecureRandom();
 
@@ -34,8 +34,8 @@ public class Food extends WObject {
 
 	private void createRandomFood() {
 		// 保证是在最小单元上，不会错位
-		int x = random.nextInt(WSystem.WIDTH / WSystem.MIN_X) * WSystem.MIN_X;
-		int y = random.nextInt(WSystem.HEIGHT / WSystem.MIN_Y) * WSystem.MIN_Y;
+		int x = random.nextInt(FFContants.WIDTH / FFContants.MIN_X) * FFContants.MIN_X;
+		int y = random.nextInt(FFContants.HEIGHT / FFContants.MIN_Y) * FFContants.MIN_Y;
 		setX(x);
 		setY(y);
 	}

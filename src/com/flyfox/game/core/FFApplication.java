@@ -5,7 +5,13 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public abstract class WApplication extends Application {
+/**
+ * 主页面父类
+ * 
+ * @author flyfox
+ * @date 2014年11月4日
+ */
+public abstract class FFApplication extends Application {
 	private Group mGroup;
 	private Scene mScene;
 
@@ -13,7 +19,7 @@ public abstract class WApplication extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		before();
 		mGroup = new Group();
-		mScene = new Scene(mGroup, WSystem.WIDTH, WSystem.HEIGHT);
+		mScene = new Scene(mGroup, FFContants.WIDTH, FFContants.HEIGHT);
 		after();
 		showStage(primaryStage);
 	}
@@ -40,7 +46,7 @@ public abstract class WApplication extends Application {
 	}
 
 	public void setWindowSize(int width, int height) {
-		WSystem.init(width, height);
+		FFContants.init(width, height);
 	}
 
 }

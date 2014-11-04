@@ -5,9 +5,9 @@ import java.util.LinkedList;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.Light.Point;
 
-import com.flyfox.game.core.WObject;
+import com.flyfox.game.core.FFObject;
 
-public class SnakeBody extends WObject {
+public class SnakeBody extends FFObject {
 
 	Snake snake;
 	int length; // ·½Ïò
@@ -80,7 +80,7 @@ public class SnakeBody extends WObject {
 	}
 
 	@Override
-	public boolean isCollisionWith(WObject baseObject) {
+	public boolean isCollisionWith(FFObject baseObject) {
 		for (Point point : list) {
 			if (list.getFirst().equals(point))
 				continue;
@@ -91,7 +91,7 @@ public class SnakeBody extends WObject {
 		return false;
 	}
 
-	private boolean isCollisionWith(double x, double y, WObject baseObject) {
+	private boolean isCollisionWith(double x, double y, FFObject baseObject) {
 		if (x + getWidth() > baseObject.getX() && x < baseObject.getX() + baseObject.getWidth()
 				&& y + getHeight() > baseObject.getY() && y < baseObject.getY() + baseObject.getHeight()) {
 			return true;

@@ -1,6 +1,12 @@
 package com.flyfox.game.core;
 
-public class WSystem {
+/**
+ * 常量类
+ * 
+ * @author flyfox
+ * @date 2014年11月4日
+ */
+public class FFContants {
 	public static int WIDTH = 800, HEIGHT = 600;
 	/**
 	 * 最小单位

@@ -7,10 +7,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
-import com.flyfox.game.core.WObject;
-import com.flyfox.game.core.WSystem;
+import com.flyfox.game.core.FFObject;
+import com.flyfox.game.core.FFContants;
 
-public class Snake extends WObject {
+public class Snake extends FFObject {
 
 	public static final int DEFAULT_LENGTH = 4;
 	AtomicInteger score = new AtomicInteger(0); // 分数
@@ -29,11 +29,11 @@ public class Snake extends WObject {
 		score.set(0);
 		setX(0);
 		setY(0);
-		setWidth(WSystem.MIN_X);
-		setHeight(WSystem.MIN_Y);
+		setWidth(FFContants.MIN_X);
+		setHeight(FFContants.MIN_Y);
 		keyCode = KeyCode.RIGHT;
 		snakeColor = Color.WHITE;
-		speed = 1;
+		speed = 2;
 		hp = 3;
 		length = DEFAULT_LENGTH;
 	}
@@ -65,11 +65,11 @@ public class Snake extends WObject {
 
 		// 判断是否需要掉头,保证最小单元
 		if (tmpKeyCode == KeyCode.UP || tmpKeyCode == KeyCode.DOWN) {
-			if (getX() == 0 || getX() % WSystem.MIN_X == 0) {
+			if (getX() == 0 || getX() % FFContants.MIN_X == 0) {
 				keyCode = tmpKeyCode;
 			}
 		} else if (tmpKeyCode == KeyCode.LEFT || tmpKeyCode == KeyCode.RIGHT) {
-			if (getY() == 0 || getY() % WSystem.MIN_Y == 0) {
+			if (getY() == 0 || getY() % FFContants.MIN_Y == 0) {
 				keyCode = tmpKeyCode;
 			}
 		}

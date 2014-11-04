@@ -14,22 +14,23 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 /**
- * Screen
+ * 基础展示类
  * 
- * @author wing 2012/8/25
+ * @author flyfox
+ * @date 2014年11月4日
  */
-public abstract class WScreen extends Canvas implements FlyFoxEvent {
+public abstract class FFScreen extends Canvas implements FFEvent {
 	protected enum GameState {
 		GAME_MENU, GAME_START, GAME_CONTINUE, GAME_HELP, GAME_SET, GAME_EXIT, GAME_PAUSE
 	};
 
-	private List<WObject> mObjects = new ArrayList<WObject>();
+	private List<FFObject> mObjects = new ArrayList<FFObject>();
 	private Timeline timeline;
 	private KeyFrame keyFrame;
 	private int duration = 10;
 	protected GameState mGameState = GameState.GAME_MENU;
 
-	public WScreen(double width, double height) {
+	public FFScreen(double width, double height) {
 		super(width, height);
 		initTimeLine();
 	}
@@ -49,19 +50,19 @@ public abstract class WScreen extends Canvas implements FlyFoxEvent {
 	}
 
 	public void onKeyPressed(KeyEvent event) {
-		for (WObject wObject : mObjects) {
+		for (FFObject wObject : mObjects) {
 			wObject.onKeyPressed(event);
 		}
 	}
 
 	public void onKeyReleased(KeyEvent event) {
-		for (WObject wObject : mObjects) {
+		for (FFObject wObject : mObjects) {
 			wObject.onKeyReleased(event);
 		}
 	}
 
 	public void onMouseMoved(MouseEvent event) {
-		for (WObject wObject : mObjects) {
+		for (FFObject wObject : mObjects) {
 			wObject.onMouseMoved(event);
 		}
 	}
@@ -72,7 +73,7 @@ public abstract class WScreen extends Canvas implements FlyFoxEvent {
 	 * @param baseObject
 	 *            the object to be add
 	 */
-	public void addObject(WObject baseObject) {
+	public void addObject(FFObject baseObject) {
 		this.mObjects.add(baseObject);
 	}
 
@@ -82,7 +83,7 @@ public abstract class WScreen extends Canvas implements FlyFoxEvent {
 	 * @param baseObject
 	 *            the object to be remove
 	 */
-	public void removeObject(WObject baseObject) {
+	public void removeObject(FFObject baseObject) {
 		this.mObjects.remove(baseObject);
 	}
 
@@ -105,7 +106,7 @@ public abstract class WScreen extends Canvas implements FlyFoxEvent {
 		gc.setEffect(null);
 		gc.clearRect(0, 0, getWidth(), getHeight());
 		for (int i = 0; i < mObjects.size(); i++) {
-			WObject wObject = mObjects.get(i);
+			FFObject wObject = mObjects.get(i);
 			if (wObject.isVisible()) {
 				wObject.draw(gc);
 			}
@@ -117,7 +118,7 @@ public abstract class WScreen extends Canvas implements FlyFoxEvent {
 	 */
 	public void update() {
 		for (int i = 0; i < mObjects.size(); i++) {
-			WObject wObject = mObjects.get(i);
+			FFObject wObject = mObjects.get(i);
 			if (wObject.isUpdate()) {
 				mObjects.get(i).update();
 			}

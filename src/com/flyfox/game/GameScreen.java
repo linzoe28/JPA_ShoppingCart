@@ -1,9 +1,9 @@
 package com.flyfox.game;
 
-import com.flyfox.game.core.WScreen;
-import com.flyfox.game.core.WSystem;
+import com.flyfox.game.core.FFScreen;
+import com.flyfox.game.core.FFContants;
 
-public class GameScreen extends WScreen {
+public class GameScreen extends FFScreen {
 
 	Snake snake = new Snake();
 	SnakeBody snakeBody = new SnakeBody(snake);
@@ -30,8 +30,8 @@ public class GameScreen extends WScreen {
 		super.update();
 
 		// 不长眼，撞边框上了，减少一条命，复原
-		if (snake.getX() > WSystem.WIDTH || snake.getX() < 0 //
-				|| snake.getY() > WSystem.HEIGHT || snake.getY() < 0) {
+		if (snake.getX() > FFContants.WIDTH || snake.getX() < 0 //
+				|| snake.getY() > FFContants.HEIGHT || snake.getY() < 0) {
 			snake.death();
 			snakeBody.setVisible(false);
 			return;

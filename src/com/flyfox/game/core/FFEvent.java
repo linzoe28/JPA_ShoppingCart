@@ -3,7 +3,13 @@ package com.flyfox.game.core;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-public interface FlyFoxEvent {
+/**
+ * 基础事件类
+ * 
+ * @author flyfox
+ * @date 2014年11月4日
+ */
+public interface FFEvent {
 
 	default public void onKeyPressed(KeyEvent event) {
 	}

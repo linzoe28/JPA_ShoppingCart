@@ -3,19 +3,19 @@ package com.flyfox.game;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import com.flyfox.game.core.WApplication;
-import com.flyfox.game.core.WSystem;
+import com.flyfox.game.core.FFApplication;
+import com.flyfox.game.core.FFContants;
 
-public class MainSnake extends WApplication {
+public class MainSnake extends FFApplication {
 
 	@Override
 	protected void before() {
-		setWindowSize(WSystem.WIDTH, WSystem.HEIGHT);
+		setWindowSize(FFContants.WIDTH, FFContants.HEIGHT);
 	}
 
 	@Override
 	protected void after() {
-		GameScreen gameScreen = new GameScreen(WSystem.WIDTH, WSystem.HEIGHT);
+		GameScreen gameScreen = new GameScreen(FFContants.WIDTH, FFContants.HEIGHT);
 		getRoot().getChildren().add(gameScreen);
 		gameScreen.start();
 		gameScreen.initEvents();

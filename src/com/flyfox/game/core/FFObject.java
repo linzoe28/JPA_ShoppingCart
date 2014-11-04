@@ -7,10 +7,12 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
- * @author wing
- * @date 2012/8/25
+ * 基础对象类
+ * 
+ * @author flyfox
+ * @date 2014年11月4日
  */
-public abstract class WObject implements FlyFoxEvent {
+public abstract class FFObject implements FFEvent {
 	protected DoubleProperty widthProperty = new SimpleDoubleProperty(0);
 	protected DoubleProperty heightProperty = new SimpleDoubleProperty(0);
 	protected DoubleProperty xProperty = new SimpleDoubleProperty(0);
@@ -18,14 +20,14 @@ public abstract class WObject implements FlyFoxEvent {
 	protected BooleanProperty updateProperty = new SimpleBooleanProperty(true);
 	protected BooleanProperty visibleProperty = new SimpleBooleanProperty(true);
 
-	public WObject(double x, double y, double width, double height) {
+	public FFObject(double x, double y, double width, double height) {
 		this.xProperty = new SimpleDoubleProperty(x);
 		this.yProperty = new SimpleDoubleProperty(y);
 		this.widthProperty = new SimpleDoubleProperty(width);
 		this.heightProperty = new SimpleDoubleProperty(height);
 	}
 
-	public WObject() {
+	public FFObject() {
 		this.xProperty = new SimpleDoubleProperty(0);
 		this.yProperty = new SimpleDoubleProperty(0);
 		this.widthProperty = new SimpleDoubleProperty(0);
@@ -112,7 +114,7 @@ public abstract class WObject implements FlyFoxEvent {
 		this.yProperty.set(getY() + y);
 	}
 
-	public boolean isCollisionWith(WObject baseObject) {
+	public boolean isCollisionWith(FFObject baseObject) {
 		if (getX() + getWidth() > baseObject.getX() && getX() < baseObject.getX() + baseObject.getWidth()
 				&& getY() + getHeight() > baseObject.getY() && getY() < baseObject.getY() + baseObject.getHeight()) {
 			return true;
