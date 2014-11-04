@@ -12,10 +12,11 @@ import com.flyfox.game.core.WSystem;
 
 public class Snake extends WObject {
 
-	public static final int DEFAULT_LENGTH = 10;
+	public static final int DEFAULT_LENGTH = 4;
 	AtomicInteger score = new AtomicInteger(0); // 分数
 	Color snakeColor; // 颜色
 	KeyCode keyCode; // 方向
+	KeyCode tmpKeyCode; // 临时方向，保证最小单元后赋值给实际方向变量
 	int speed; // 速度
 	int hp; // 生命值
 	int length; // 长度
@@ -28,12 +29,12 @@ public class Snake extends WObject {
 		score.set(0);
 		setX(0);
 		setY(0);
-		setWidth(10);
-		setHeight(10);
+		setWidth(WSystem.MIN_X);
+		setHeight(WSystem.MIN_Y);
 		keyCode = KeyCode.RIGHT;
 		snakeColor = Color.WHITE;
-		speed = 2;
-		hp = 10;
+		speed = 1;
+		hp = 3;
 		length = DEFAULT_LENGTH;
 	}
 
@@ -51,27 +52,35 @@ public class Snake extends WObject {
 			return;
 		}
 
-		// 减少一条命，复原
-		if (getX() > WSystem.WIDTH || getX() < 0 //
-				|| getY() > WSystem.HEIGHT || getY() < 0) {
-			setX(0);
-			setY(0);
-			keyCode = KeyCode.RIGHT;
-			this.length = DEFAULT_LENGTH;
-			reduceHp();
-			return;
-		}
-
 		// 移动，但是不能调头
-		if (keyCode == KeyCode.UP && keyCode != KeyCode.DOWN) {
+		if (keyCode == KeyCode.UP) {
 			moveY(-speed);
-		} else if (keyCode == KeyCode.DOWN && keyCode != KeyCode.UP) {
+		} else if (keyCode == KeyCode.DOWN) {
 			moveY(speed);
-		} else if (keyCode == KeyCode.LEFT && keyCode != KeyCode.RIGHT) {
+		} else if (keyCode == KeyCode.LEFT) {
 			moveX(-speed);
-		} else if (keyCode == KeyCode.RIGHT && keyCode != KeyCode.LEFT) {
+		} else if (keyCode == KeyCode.RIGHT) {
 			moveX(speed);
 		}
+
+		// 判断是否需要掉头,保证最小单元
+		if (tmpKeyCode == KeyCode.UP || tmpKeyCode == KeyCode.DOWN) {
+			if (getX() == 0 || getX() % WSystem.MIN_X == 0) {
+				keyCode = tmpKeyCode;
+			}
+		} else if (tmpKeyCode == KeyCode.LEFT || tmpKeyCode == KeyCode.RIGHT) {
+			if (getY() == 0 || getY() % WSystem.MIN_Y == 0) {
+				keyCode = tmpKeyCode;
+			}
+		}
+	}
+
+	public void death() {
+		setX(0);
+		setY(0);
+		keyCode = KeyCode.RIGHT;
+		this.length = DEFAULT_LENGTH;
+		reduceHp();
 	}
 
 	public void onKeyPressed(KeyEvent event) {
@@ -85,9 +94,9 @@ public class Snake extends WObject {
 			return;
 		}
 
-		// 不接受别的按键
+		// 不接受别的按键，先存入临时变量，待达到最小单位后再赋值给实际方向变量
 		if (tmpCode == KeyCode.UP || tmpCode == KeyCode.DOWN || tmpCode == KeyCode.RIGHT || tmpCode == KeyCode.LEFT) {
-			keyCode = tmpCode;
+			tmpKeyCode = tmpCode;
 		}
 	}
 

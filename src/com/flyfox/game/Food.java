@@ -33,8 +33,9 @@ public class Food extends WObject {
 	}
 
 	private void createRandomFood() {
-		int x = random.nextInt(WSystem.WIDTH);
-		int y = random.nextInt(WSystem.HEIGHT);
+		// 保证是在最小单元上，不会错位
+		int x = random.nextInt(WSystem.WIDTH / WSystem.MIN_X) * WSystem.MIN_X;
+		int y = random.nextInt(WSystem.HEIGHT / WSystem.MIN_Y) * WSystem.MIN_Y;
 		setX(x);
 		setY(y);
 	}
