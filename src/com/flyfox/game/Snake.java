@@ -32,6 +32,7 @@ public class Snake extends FFObject {
 		setWidth(FFContants.MIN_X);
 		setHeight(FFContants.MIN_Y);
 		keyCode = KeyCode.RIGHT;
+		tmpKeyCode =  KeyCode.RIGHT;
 		snakeColor = Color.WHITE;
 		speed = 2;
 		hp = 3;
@@ -79,6 +80,7 @@ public class Snake extends FFObject {
 		setX(0);
 		setY(0);
 		keyCode = KeyCode.RIGHT;
+		tmpKeyCode =  KeyCode.RIGHT;
 		this.length = DEFAULT_LENGTH;
 		reduceHp();
 	}

@@ -1,7 +1,7 @@
 package com.flyfox.game;
 
-import com.flyfox.game.core.FFScreen;
 import com.flyfox.game.core.FFContants;
+import com.flyfox.game.core.FFScreen;
 
 public class GameScreen extends FFScreen {
 
@@ -11,8 +11,8 @@ public class GameScreen extends FFScreen {
 
 	public GameScreen(double width, double height) {
 		super(width, height);
-		addObject(snake);
 		addObject(snakeBody);
+		addObject(snake);
 		addObject(food);
 	}
 

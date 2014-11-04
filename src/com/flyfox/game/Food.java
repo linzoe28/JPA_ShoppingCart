@@ -14,14 +14,14 @@ public class Food extends FFObject {
 
 	public Food() {
 		createRandomFood();
-		setWidth(10);
-		setHeight(10);
+		setWidth(FFContants.MIN_X);
+		setHeight(FFContants.MIN_Y);
 	}
 
 	@Override
 	public void draw(GraphicsContext gc) {
 		gc.setFill(Color.RED);
-		gc.fillRect(getX(), getY(), getWidth(), getHeight());
+		gc.fillOval(getX(), getY(), getWidth(), getHeight());
 	}
 
 	@Override

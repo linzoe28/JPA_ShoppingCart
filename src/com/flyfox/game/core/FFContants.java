@@ -7,11 +7,14 @@ package com.flyfox.game.core;
  * @date 2014年11月4日
  */
 public class FFContants {
-	public static int WIDTH = 400, HEIGHT = 300;
+	/**
+	 * 游戏屏幕大小
+	 */
+	public static int WIDTH = 800, HEIGHT = 600;
 	/**
 	 * 最小单位
 	 */
-	public static int MIN_X = 10, MIN_Y = 10;
+	public static int MIN_X = 20, MIN_Y = 20;
 
 	public static void init(int width, int height) {
 		WIDTH = width;
