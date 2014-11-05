@@ -47,6 +47,8 @@ public class GameScreen extends FFScreen {
 			snake.setVisible(false);
 			snakeBody.setVisible(false);
 			food.setVisible(false);
+			
+			info.setHp(0);
 			return;
 		}
 

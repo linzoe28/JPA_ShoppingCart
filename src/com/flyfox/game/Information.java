@@ -19,14 +19,14 @@ public class Information extends FFObject {
 	@Override
 	public void init() {
 		super.init();
-		
+
 		score = 0;
 	}
-	
+
 	@Override
 	public void draw(GraphicsContext gc) {
 		gc.setFill(Color.GREEN);
-		gc.fillText("生命:" + getHp(), FFContants.WIDTH - 100, 20);
+		gc.fillText("生命：" + getHp() + (getHp() == 0 ? "（死亡）" : ""), FFContants.WIDTH - 100, 20);
 		gc.fillText("积分：" + getScore(), FFContants.WIDTH - 100, 40);
 		gc.fillText("P键暂停", FFContants.WIDTH - 100, 60);
 		gc.fillText("S键重新开始", FFContants.WIDTH - 100, 80);
