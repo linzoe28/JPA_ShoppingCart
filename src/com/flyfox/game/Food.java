@@ -13,6 +13,12 @@ public class Food extends FFObject {
 	private SecureRandom random = new SecureRandom();
 
 	public Food() {
+		init();
+	}
+
+	public void init() {
+		super.init();
+		
 		createRandomFood();
 		setWidth(FFContants.MIN_X);
 		setHeight(FFContants.MIN_Y);

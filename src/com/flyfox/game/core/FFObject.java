@@ -34,6 +34,11 @@ public abstract class FFObject implements FFEvent {
 		this.heightProperty = new SimpleDoubleProperty(0);
 	}
 
+	@Override
+	public void init() {
+		setVisible(true);
+	}
+
 	public abstract void draw(GraphicsContext gc);
 
 	public abstract void update();

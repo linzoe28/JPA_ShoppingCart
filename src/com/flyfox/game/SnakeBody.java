@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.Light.Point;
+import javafx.scene.paint.Color;
 
 import com.flyfox.game.core.FFObject;
 
@@ -15,7 +16,6 @@ public class SnakeBody extends FFObject {
 
 	public SnakeBody(Snake snake) {
 		this.snake = snake;
-		this.length = snake.length;
 		// 属性绑定
 		this.xProperty.bindBidirectional(snake.xProperty());
 		this.yProperty.bindBidirectional(snake.yProperty());
@@ -25,7 +25,11 @@ public class SnakeBody extends FFObject {
 		init();
 	}
 
-	private void init() {
+	public void init() {
+		super.init();
+		
+		this.length = snake.length;
+		
 		list.clear();
 		for (int i = 0; i < snake.getLength(); i++) {
 			Point point = new Point();
@@ -62,7 +66,7 @@ public class SnakeBody extends FFObject {
 
 		gc.setFill(snake.getSnakeColor());
 		// 调试用这个颜色
-		// gc.setFill(Color.BLUE);
+		gc.setFill(Color.BLUE);
 		for (Point point : list) {
 			// 为了连贯性~第一个点也画出来了
 			gc.fillRect(point.getX(), point.getY(), getWidth(), getHeight());

@@ -25,18 +25,21 @@ public class Snake extends FFObject {
 		init();
 	}
 
-	private void init() {
+	public void init() {
+		super.init();
+		
 		score.set(0);
-		setX(0);
-		setY(0);
 		setWidth(FFContants.MIN_X);
 		setHeight(FFContants.MIN_Y);
 		keyCode = KeyCode.RIGHT;
-		tmpKeyCode =  KeyCode.RIGHT;
+		tmpKeyCode = KeyCode.RIGHT;
 		snakeColor = Color.WHITE;
 		speed = 2;
 		hp = 3;
 		length = DEFAULT_LENGTH;
+
+		setX(0);
+		setY(0);
 	}
 
 	@Override
@@ -80,7 +83,7 @@ public class Snake extends FFObject {
 		setX(0);
 		setY(0);
 		keyCode = KeyCode.RIGHT;
-		tmpKeyCode =  KeyCode.RIGHT;
+		tmpKeyCode = KeyCode.RIGHT;
 		this.length = DEFAULT_LENGTH;
 		reduceHp();
 	}
@@ -100,6 +103,10 @@ public class Snake extends FFObject {
 		if (tmpCode == KeyCode.UP || tmpCode == KeyCode.DOWN || tmpCode == KeyCode.RIGHT || tmpCode == KeyCode.LEFT) {
 			tmpKeyCode = tmpCode;
 		}
+	}
+
+	public int score() {
+		return score.get();
 	}
 
 	/**
