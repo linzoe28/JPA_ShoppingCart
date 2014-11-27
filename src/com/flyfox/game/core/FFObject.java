@@ -7,10 +7,10 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
- * »ù´¡¶ÔÏóÀà
+ * åŸºç¡€å¯¹è±¡ç±»
  * 
  * @author flyfox
- * @date 2014Äê11ÔÂ4ÈÕ
+ * @date 2014å¹´11æœˆ4æ—¥
  */
 public abstract class FFObject implements FFEvent {
 	protected DoubleProperty widthProperty = new SimpleDoubleProperty(0);

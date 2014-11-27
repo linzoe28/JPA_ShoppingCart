@@ -1,18 +1,18 @@
 package com.flyfox.game.core;
 
 /**
- * ³£Á¿Àà
+ * å¸¸é‡ç±»
  * 
  * @author flyfox
- * @date 2014Äê11ÔÂ4ÈÕ
+ * @date 2014å¹´11æœˆ4æ—¥
  */
 public class FFContants {
 	/**
-	 * ÓÎÏ·ÆÁÄ»´óĞ¡
+	 * æ¸¸æˆå±å¹•å¤§å°
 	 */
 	public static int WIDTH = 800, HEIGHT = 600;
 	/**
-	 * ×îĞ¡µ¥Î»
+	 * æœ€å°å•ä½
 	 */
 	public static int MIN_X = 20, MIN_Y = 20;
 

@@ -4,22 +4,22 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 /**
- * »ù´¡ÊÂ¼şÀà£¬ÀûÓÃJDK8Ä¬ÈÏÊ±¼äÌØĞÔ
+ * åŸºç¡€äº‹ä»¶ç±»ï¼Œåˆ©ç”¨JDK8é»˜è®¤æ—¶é—´ç‰¹æ€§
  * 
  * @author flyfox
- * @date 2014Äê11ÔÂ4ÈÕ
+ * @date 2014å¹´11æœˆ4æ—¥
  */
 public interface FFEvent {
 
 	/**
-	 * ³õÊ¼»¯ÊÂ¼ş
+	 * åˆå§‹åŒ–äº‹ä»¶
 	 * 
 	 */
 	default public void init() {
 	}
 
 	/**
-	 * Ä¬ÈÏ°´¼ü°´ÏÂÊÂ¼ş
+	 * é»˜è®¤æŒ‰é”®æŒ‰ä¸‹äº‹ä»¶
 	 * 
 	 * @param event
 	 */
@@ -27,7 +27,7 @@ public interface FFEvent {
 	}
 
 	/**
-	 * Ä¬ÈÏ°´¼üÊÍ·ÅÊÂ¼ş
+	 * é»˜è®¤æŒ‰é”®é‡Šæ”¾äº‹ä»¶
 	 * 
 	 * @param event
 	 */
@@ -35,7 +35,7 @@ public interface FFEvent {
 	}
 
 	/**
-	 * Ä¬ÈÏÊó±êÒÆ¶¯ÊÂ¼ş
+	 * é»˜è®¤é¼ æ ‡ç§»åŠ¨äº‹ä»¶
 	 * 
 	 * @param event
 	 */

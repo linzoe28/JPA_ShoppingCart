@@ -11,17 +11,17 @@ import com.flyfox.game.core.FFObject;
 public class SnakeBody extends FFObject {
 
 	Snake snake;
-	int length; // ·½Ïò
+	int length; // æ–¹å‘
 	LinkedList<Point> list = new LinkedList<Point>();
 
 	public SnakeBody(Snake snake) {
 		this.snake = snake;
-		// ÊôĞÔ°ó¶¨
+		// å±æ€§ç»‘å®š
 		this.xProperty.bindBidirectional(snake.xProperty());
 		this.yProperty.bindBidirectional(snake.yProperty());
 		this.widthProperty.bindBidirectional(snake.widthProperty());
 		this.heightProperty.bindBidirectional(snake.heightProperty());
-		// ³õÊ¼»¯Î»ÖÃÁĞ±í
+		// åˆå§‹åŒ–ä½ç½®åˆ—è¡¨
 		init();
 	}
 
@@ -45,37 +45,37 @@ public class SnakeBody extends FFObject {
 			return;
 		}
 
-		// Ô­Àí£ºÒÆ¶¯Ò»´Î£¬ÄÇÃ´ºóÒ»¸öµÄÎ»ÖÃ¾ÍµÈÓÚÇ°Ò»¸öµÄÎ»ÖÃ£¬Ò²¾ÍÊÇ¼ÓÈëĞÂµÄfirst£¬É¾³ı¾ÉµÄlast
+		// åŸç†ï¼šç§»åŠ¨ä¸€æ¬¡ï¼Œé‚£ä¹ˆåä¸€ä¸ªçš„ä½ç½®å°±ç­‰äºå‰ä¸€ä¸ªçš„ä½ç½®ï¼Œä¹Ÿå°±æ˜¯åŠ å…¥æ–°çš„firstï¼Œåˆ é™¤æ—§çš„last
 		Point firstPoi = list.getFirst();
-		// Î»ÒÆÒÑ¾­´ïµ½Ò»¸öÉíÎ»ÔÙ½øĞĞ´¦Àí
+		// ä½ç§»å·²ç»è¾¾åˆ°ä¸€ä¸ªèº«ä½å†è¿›è¡Œå¤„ç†
 		if (firstPoi.getX() + getWidth() <= getX() || firstPoi.getX() - getWidth() >= getX() //
 				|| firstPoi.getY() + getHeight() <= getY() || firstPoi.getY() - getHeight() >= getY()) {
 			Point poi = new Point();
 			poi.setX(getX());
 			poi.setY(getY());
-			// Ìí¼ÓµÚÒ»¸öÍ·
+			// æ·»åŠ ç¬¬ä¸€ä¸ªå¤´
 			list.addFirst(poi);
-			// Èç¹û³Ôµ½ÁË¾Í²»ÒÆ³ıÁË£¬Ã»³Ôµ½¾ÍÉ¾³ı×îºóÒ»¸ö
+			// å¦‚æœåƒåˆ°äº†å°±ä¸ç§»é™¤äº†ï¼Œæ²¡åƒåˆ°å°±åˆ é™¤æœ€åä¸€ä¸ª
 			if (this.length < snake.length) {
 				this.length = this.length + 1;
 			} else {
-				// ÒÆ³ı×îºóÒ»¸ö
+				// ç§»é™¤æœ€åä¸€ä¸ª
 				list.removeLast();
 			}
 		}
 
 		gc.setFill(snake.getSnakeColor());
-		// µ÷ÊÔÓÃÕâ¸öÑÕÉ«
+		// è°ƒè¯•ç”¨è¿™ä¸ªé¢œè‰²
 		gc.setFill(Color.BLUE);
 		for (Point point : list) {
-			// ÎªÁËÁ¬¹áĞÔ~µÚÒ»¸öµãÒ²»­³öÀ´ÁË
+			// ä¸ºäº†è¿è´¯æ€§~ç¬¬ä¸€ä¸ªç‚¹ä¹Ÿç”»å‡ºæ¥äº†
 			gc.fillRect(point.getX(), point.getY(), getWidth(), getHeight());
 		}
 	}
 
 	@Override
 	public void update() {
-		// Èç¹û²»ÏÔÊ¾ÁË£¬ÖØĞÂÕ¹Ê¾
+		// å¦‚æœä¸æ˜¾ç¤ºäº†ï¼Œé‡æ–°å±•ç¤º
 		if (!isVisible()) {
 			init();
 			setVisible(true);

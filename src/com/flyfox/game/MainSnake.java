@@ -26,7 +26,7 @@ public class MainSnake extends FFApplication {
 	@Override
 	protected void showStage(Stage stage) {
 		super.showStage(stage);
-		stage.setTitle("JavaFXÓÎÏ·¿ª·¢ Ì°³ÔÉß");
+		stage.setTitle("JavaFXæ¸¸æˆå¼€å‘ è´ªåƒè›‡");
 	}
 
 	public static void main(String[] args) {

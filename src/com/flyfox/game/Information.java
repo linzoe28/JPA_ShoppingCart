@@ -26,10 +26,10 @@ public class Information extends FFObject {
 	@Override
 	public void draw(GraphicsContext gc) {
 		gc.setFill(Color.GREEN);
-		gc.fillText("ÉúÃü£º" + getHp() + (getHp() == 0 ? "£¨ËÀÍö£©" : ""), FFContants.WIDTH - 100, 20);
-		gc.fillText("»ı·Ö£º" + getScore(), FFContants.WIDTH - 100, 40);
-		gc.fillText("P¼üÔİÍ£", FFContants.WIDTH - 100, 60);
-		gc.fillText("S¼üÖØĞÂ¿ªÊ¼", FFContants.WIDTH - 100, 80);
+		gc.fillText("ç”Ÿå‘½ï¼š" + getHp() + (getHp() == 0 ? "ï¼ˆæ­»äº¡ï¼‰" : ""), FFContants.WIDTH - 100, 20);
+		gc.fillText("ç§¯åˆ†ï¼š" + getScore(), FFContants.WIDTH - 100, 40);
+		gc.fillText("Pé”®æš‚åœ", FFContants.WIDTH - 100, 60);
+		gc.fillText("Sé”®é‡æ–°å¼€å§‹", FFContants.WIDTH - 100, 80);
 	}
 
 	@Override

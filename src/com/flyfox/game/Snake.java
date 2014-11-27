@@ -13,13 +13,13 @@ import com.flyfox.game.core.FFContants;
 public class Snake extends FFObject {
 
 	public static final int DEFAULT_LENGTH = 8;
-	AtomicInteger score = new AtomicInteger(0); // ·ÖÊı
-	Color snakeColor; // ÑÕÉ«
-	KeyCode keyCode; // ·½Ïò
-	KeyCode tmpKeyCode; // ÁÙÊ±·½Ïò£¬±£Ö¤×îĞ¡µ¥Ôªºó¸³Öµ¸øÊµ¼Ê·½Ïò±äÁ¿
-	int speed; // ËÙ¶È
-	int hp; // ÉúÃüÖµ
-	int length; // ³¤¶È
+	AtomicInteger score = new AtomicInteger(0); // åˆ†æ•°
+	Color snakeColor; // é¢œè‰²
+	KeyCode keyCode; // æ–¹å‘
+	KeyCode tmpKeyCode; // ä¸´æ—¶æ–¹å‘ï¼Œä¿è¯æœ€å°å•å…ƒåèµ‹å€¼ç»™å®é™…æ–¹å‘å˜é‡
+	int speed; // é€Ÿåº¦
+	int hp; // ç”Ÿå‘½å€¼
+	int length; // é•¿åº¦
 
 	public Snake() {
 		init();
@@ -50,13 +50,13 @@ public class Snake extends FFObject {
 
 	@Override
 	public void update() {
-		// ËÀ±ÆÁË
+		// æ­»é€¼äº†
 		if (hp <= 0) {
 			setVisible(false);
 			return;
 		}
 
-		// ÒÆ¶¯£¬µ«ÊÇ²»ÄÜµ÷Í·
+		// ç§»åŠ¨ï¼Œä½†æ˜¯ä¸èƒ½è°ƒå¤´
 		if (keyCode == KeyCode.UP) {
 			moveY(-speed);
 		} else if (keyCode == KeyCode.DOWN) {
@@ -67,7 +67,7 @@ public class Snake extends FFObject {
 			moveX(speed);
 		}
 
-		// ÅĞ¶ÏÊÇ·ñĞèÒªµôÍ·,±£Ö¤×îĞ¡µ¥Ôª
+		// åˆ¤æ–­æ˜¯å¦éœ€è¦æ‰å¤´,ä¿è¯æœ€å°å•å…ƒ
 		if (tmpKeyCode == KeyCode.UP || tmpKeyCode == KeyCode.DOWN) {
 			if (getX() == 0 || getX() % FFContants.MIN_X == 0) {
 				keyCode = tmpKeyCode;
@@ -90,7 +90,7 @@ public class Snake extends FFObject {
 
 	public void onKeyPressed(KeyEvent event) {
 		KeyCode tmpCode = event.getCode();
-		// Èç¹û·´·½ÏòÄÇÃ´²»´¦Àí£¬Éß²»»áµôÍ·
+		// å¦‚æœåæ–¹å‘é‚£ä¹ˆä¸å¤„ç†ï¼Œè›‡ä¸ä¼šæ‰å¤´
 		if ((tmpCode == KeyCode.UP && keyCode == KeyCode.DOWN) //
 				|| (tmpCode == KeyCode.DOWN && keyCode == KeyCode.UP) //
 				|| (tmpCode == KeyCode.RIGHT && keyCode == KeyCode.LEFT) //
@@ -99,7 +99,7 @@ public class Snake extends FFObject {
 			return;
 		}
 
-		// ²»½ÓÊÜ±ğµÄ°´¼ü£¬ÏÈ´æÈëÁÙÊ±±äÁ¿£¬´ı´ïµ½×îĞ¡µ¥Î»ºóÔÙ¸³Öµ¸øÊµ¼Ê·½Ïò±äÁ¿
+		// ä¸æ¥å—åˆ«çš„æŒ‰é”®ï¼Œå…ˆå­˜å…¥ä¸´æ—¶å˜é‡ï¼Œå¾…è¾¾åˆ°æœ€å°å•ä½åå†èµ‹å€¼ç»™å®é™…æ–¹å‘å˜é‡
 		if (tmpCode == KeyCode.UP || tmpCode == KeyCode.DOWN || tmpCode == KeyCode.RIGHT || tmpCode == KeyCode.LEFT) {
 			tmpKeyCode = tmpCode;
 		}
@@ -110,7 +110,7 @@ public class Snake extends FFObject {
 	}
 
 	/**
-	 * ×î¼òµ¥µÄ¼Æ·ÖÊı
+	 * æœ€ç®€å•çš„è®¡åˆ†æ•°
 	 */
 	public void addScore() {
 		score.incrementAndGet();

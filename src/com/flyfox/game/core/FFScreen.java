@@ -14,10 +14,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 /**
- * »ù´¡Õ¹Ê¾Àà
+ * åŸºç¡€å±•ç¤ºç±»
  * 
  * @author flyfox
- * @date 2014Äê11ÔÂ4ÈÕ
+ * @date 2014å¹´11æœˆ4æ—¥
  */
 public abstract class FFScreen extends Canvas implements FFEvent {
 	protected enum GameState {

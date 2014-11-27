@@ -19,7 +19,7 @@ public class GameScreen extends FFScreen {
 		addObject(snakeBody);
 		addObject(snake);
 		addObject(food);
-		// ĞÅÏ¢ÔÚ×îÉÏ²ã
+		// ä¿¡æ¯åœ¨æœ€ä¸Šå±‚
 		addObject(info);
 
 		mGameState = GameState.GAME_START;
@@ -27,7 +27,7 @@ public class GameScreen extends FFScreen {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		// ÔİÍ£
+		// æš‚åœ
 		if (mGameState == GameState.GAME_PAUSE) {
 			return;
 		}
@@ -37,12 +37,12 @@ public class GameScreen extends FFScreen {
 
 	@Override
 	public void update() {
-		// ÔİÍ£
+		// æš‚åœ
 		if (mGameState == GameState.GAME_PAUSE) {
 			return;
 		}
 
-		// ËÀÁË
+		// æ­»äº†
 		if (snake.getHp() <= 0) {
 			snake.setVisible(false);
 			snakeBody.setVisible(false);
@@ -52,14 +52,14 @@ public class GameScreen extends FFScreen {
 			return;
 		}
 
-		// ÉèÖÃÏÔÊ¾ÉúÃüºÍ»ı·Ö
+		// è®¾ç½®æ˜¾ç¤ºç”Ÿå‘½å’Œç§¯åˆ†
 		info.setHp(snake.getHp());
 		info.setScore(snake.score());
 
-		// µ÷ÓÃ¸üĞÂ²Ù×÷
+		// è°ƒç”¨æ›´æ–°æ“ä½œ
 		super.update();
 
-		// ²»³¤ÑÛ£¬×²±ß¿òÉÏÁË£¬¼õÉÙÒ»ÌõÃü£¬¸´Ô­
+		// ä¸é•¿çœ¼ï¼Œæ’è¾¹æ¡†ä¸Šäº†ï¼Œå‡å°‘ä¸€æ¡å‘½ï¼Œå¤åŸ
 		if (snake.getX() > FFContants.WIDTH || snake.getX() < 0 //
 				|| snake.getY() > FFContants.HEIGHT || snake.getY() < 0) {
 			snake.death();
@@ -67,14 +67,14 @@ public class GameScreen extends FFScreen {
 			return;
 		}
 
-		// ×²µ½×Ô¼ºµÄÉíÌåÁË
+		// æ’åˆ°è‡ªå·±çš„èº«ä½“äº†
 		if (snakeBody.isCollisionWith(snake)) {
 			snake.death();
 			snakeBody.setVisible(false);
 			return;
 		}
 
-		// ³Ôµ½ÁË~£¡~
+		// åƒåˆ°äº†~ï¼~
 		if (snake.isCollisionWith(food)) {
 			snake.addScore();
 			snake.addLength();
@@ -85,7 +85,7 @@ public class GameScreen extends FFScreen {
 
 	@Override
 	public void onKeyReleased(KeyEvent event) {
-		// ÔİÍ£
+		// æš‚åœ
 		if (event.getCode() == KeyCode.P) {
 			if (mGameState == GameState.GAME_PAUSE) {
 				mGameState = GameState.GAME_CONTINUE;
@@ -94,7 +94,7 @@ public class GameScreen extends FFScreen {
 			}
 		}
 
-		// ÖØĞÂ¿ªÊ¼
+		// é‡æ–°å¼€å§‹
 		if (event.getCode() == KeyCode.S) {
 			info.init();
 			snake.init();

@@ -6,10 +6,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Ö÷Ò³Ãæ¸¸Àà
+ * ä¸»é¡µé¢çˆ¶ç±»
  * 
  * @author flyfox
- * @date 2014Äê11ÔÂ4ÈÕ
+ * @date 2014å¹´11æœˆ4æ—¥
  */
 public abstract class FFApplication extends Application {
 	private Group mGroup;

@@ -39,7 +39,7 @@ public class Food extends FFObject {
 	}
 
 	private void createRandomFood() {
-		// ±£Ö¤ÊÇÔÚ×îĞ¡µ¥ÔªÉÏ£¬²»»á´íÎ»
+		// ä¿è¯æ˜¯åœ¨æœ€å°å•å…ƒä¸Šï¼Œä¸ä¼šé”™ä½
 		int x = random.nextInt(FFContants.WIDTH / FFContants.MIN_X) * FFContants.MIN_X;
 		int y = random.nextInt(FFContants.HEIGHT / FFContants.MIN_Y) * FFContants.MIN_Y;
 		setX(x);
