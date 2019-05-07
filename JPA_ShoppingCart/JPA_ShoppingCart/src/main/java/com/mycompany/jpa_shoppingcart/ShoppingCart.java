@@ -18,7 +18,7 @@ import javax.persistence.Table;
  *
  * @author User
  */
-@Entity
+@Entity  //defalt clas_ name ShoppingCart
 @Table(name = "shopping_cart")
 @NamedQueries({
     @NamedQuery(name = "ShoppingCart.findAll", query = "SELECT s FROM ShoppingCart s")})
