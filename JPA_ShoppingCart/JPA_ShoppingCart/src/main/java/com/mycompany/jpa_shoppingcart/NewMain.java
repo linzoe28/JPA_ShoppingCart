@@ -21,15 +21,18 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_JPA_ShoppingCart_jar_1.0-SNAPSHOTPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_JPA_ShoppingCart_jar_1.0-SNAPSHOTPU");
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("SELECT o FROM ShoppingCart o WHERE o.product='note'"); //From接的為 Entity name
+        
+        /*em.createNamedQuery("");  //NamedQueries 使用既有query，可以而外給定*/ 
+        
         List<ShoppingCart> list = query.getResultList();
         for (ShoppingCart item : list) {
             System.out.println(item.getProduct() + ":" + item.getAmount());
         }
         em.close();
-        System.exit(0);*/
+        System.exit(0);
         
         insert();
 
